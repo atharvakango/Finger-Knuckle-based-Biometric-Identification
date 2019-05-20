@@ -1,0 +1,93 @@
+{% load static from staticfiles %}
+
+
+<html>
+
+<head>
+    <script src="https://www.gstatic.com/firebasejs/5.9.3/firebase.js"></script>
+        <script>
+          // Initialize Firebase
+              var config = {
+                apiKey: "AIzaSyApMDEM_gb2oG-ZrweIl74DCTu0dr35BMQ",
+                authDomain: "mychat-a0f1e.firebaseapp.com",
+                databaseURL: "https://mychat-a0f1e.firebaseio.com",
+                projectId: "mychat-a0f1e",
+                storageBucket: "mychat-a0f1e.appspot.com",
+                messagingSenderId: "1074922230999"
+              };
+              firebase.initializeApp(config);
+              var Database =firebase.database();
+        </script>
+
+        <script src = "https://code.jquery.com/jquery-3.1.0.js"></script>
+        <script src = "{% static 'index.js' %}"></script>
+    <meta charset="UTF-8">
+    <title>Register</title>
+    <meta name="description" content="Login - Register Template">
+    <meta name="author" content="Lorenzo Angelino aka MrLolok">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'main.css' %}">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <style>
+        body {
+            background-color: #303641;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="container-register">
+        <div id="title">
+            <i class="material-icons lock">lock</i> Register
+        </div>
+
+        <form method="post" action="{% url 'reg' %}">
+            {% csrf_token %}
+            <!-- <div class="input">
+                <div class="input-addon">
+                    <i class="material-icons">email</i>
+                </div>
+               <input id="email" placeholder="Email" type="email" required class="validate" autocomplete="off">
+            </div> --> 
+
+            <div class="clearfix"></div>
+
+            <div class="input">
+                <div class="input-addon">
+                    <i class="material-icons">face</i>
+                </div>
+                <input id="username" name='username' placeholder="Username" type="text" required class="validate" autocomplete="off">
+            </div>
+
+            <div class="clearfix"></div>
+
+            <div class="input">
+                <div class="input-addon">
+                    <!-- <i class="material-icons">vpn_key</i> -->
+                </div>
+                <!-- <input id="password" placeholder="Password" type="file" required class="validate" autocomplete="off"> -->
+                <select id="table_body" name='filename'></select>
+            </div>
+<br/><br/><br/>
+            <div class="remember-me">
+                <!-- <input type="checkbox"> -->
+                <!-- <span style="color: #DDD">I accept Terms of Service</span> -->
+            </div>
+
+            <input type="submit" value="Register" />
+        </form>
+
+        <br/><br/>
+
+        <div class="privacy">
+            <!-- <a href="#">Privacy Policy</a> -->
+        </div>
+
+        <div class="register">
+            Do you already have an account?
+            <a href="{% url 'log' %}"><button id="register-link">Log In here</button></a>
+        </div>
+    </div>
+</body>
+
+</html>

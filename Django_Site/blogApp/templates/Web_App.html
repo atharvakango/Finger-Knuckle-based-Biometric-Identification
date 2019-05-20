@@ -1,0 +1,48 @@
+{% load static from staticfiles %}
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>My Chat</title>
+		<script src="https://www.gstatic.com/firebasejs/5.9.3/firebase.js"></script>
+		<script>
+		  // Initialize Firebase
+		  var config = {
+		    apiKey: "AIzaSyApMDEM_gb2oG-ZrweIl74DCTu0dr35BMQ",
+		    authDomain: "mychat-a0f1e.firebaseapp.com",
+		    databaseURL: "https://mychat-a0f1e.firebaseio.com",
+		    projectId: "mychat-a0f1e",
+		    storageBucket: "mychat-a0f1e.appspot.com",
+		    messagingSenderId: "1074922230999"
+		  };
+		  firebase.initializeApp(config);
+		  var Database =firebase.database();
+		</script>
+
+		<script src = "https://code.jquery.com/jquery-3.1.0.js"></script>
+		<script src = "{% static 'index.js' %}"></script>
+
+	</head>
+<body>
+
+	<h1>Let's Start Integrating the Andoid and Web-Platforms</h1>
+<!-- 
+	<select>
+		<option id="table_body">Images</option>
+	</select> -->
+	
+	<table>
+	  <thead>
+	    <tr>
+	      <td>Name</td>
+	      <td>Text</td>      
+	      <td>Images</td>
+	    </tr>
+	  </thead>
+	  <select id="table_body"></select>
+	</table>
+
+
+
+</body>
+</html>
